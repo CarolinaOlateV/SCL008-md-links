@@ -16,7 +16,12 @@ readFiles(command, 'utf-8')
 const links = markdownLinkExtractor(res);
 links.forEach(function(element) { //recorremos el archivo 
     fetch(element).then((res) => { //fetch toma cada elemento que recorrio y le entrega la respuesta
-        console.log(res.url + ' ' + res.status + ' ' + res.statusText);
+        let result = {}
+        result.link = res.url
+        result.status = res.status
+        result.statusText = res.statusText
+        console.log(result)
+        // console.log(res.url + ' ' + res.status + ' ' + res.statusText);
     })
     .catch (error => {
         console.log(error.message)
