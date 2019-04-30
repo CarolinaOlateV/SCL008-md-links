@@ -15,7 +15,8 @@ readFiles(command, 'utf-8')
 .then(res => {
 const links = markdownLinkExtractor(res);
 links.forEach(function(element) { //recorremos el archivo 
-    fetch(element).then((res) => { //fetch toma cada elemento que recorrio y le entrega la respuesta
+    fetch(element)
+    .then((res) => { //fetch toma cada elemento que recorrio y le entrega la respuesta
         let result = {}
         result.link = res.url
         result.status = res.status
